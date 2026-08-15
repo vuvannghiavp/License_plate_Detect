@@ -1,0 +1,5 @@
+class,train,valid,test,total
+Do,80,10,10,100
+Trang,84,10,11,105
+Vang,70,9,9,88
+Xanh,85,11,11,107

@@ -1,0 +1,21 @@
+# Python 3.11+ — Bien so Viet Nam (YOLOv8 + PaddleOCR + ColorCNN+HSV)
+# ====================================================================
+# YOLOv8 phat hien bien so
+ultralytics>=8.0.0
+
+# PaddleOCR doc text bien so (thay CharCNN)
+paddlepaddle>=2.5.0
+paddleocr>=2.7.0
+
+# Color CNN (PyTorch) + HSV (OpenCV)
+torch>=2.0.0
+torchvision>=0.15.0
+
+# Xu ly anh
+opencv-python>=4.8.0
+numpy>=1.24.0,<2.0.0
+pillow>=9.0.0
+
+
+# Phu tro
+scipy>=1.10.0
