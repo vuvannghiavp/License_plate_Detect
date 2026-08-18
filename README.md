@@ -1,4 +1,4 @@
-# NDBSXfix3 — Nhận Diện Biển Số Xe Việt Nam
+# — Nhận Diện Biển Số Xe Việt Nam
 
 YOLOv8 phát hiện biển → PaddleOCR đọc chữ → ColorCNN nhận màu (Trắng / Vàng / Xanh / Đỏ)
 
@@ -11,7 +11,6 @@ YOLOv8 phát hiện biển → PaddleOCR đọc chữ → ColorCNN nhận màu (
 ```
 python -m venv venv
 venv\Scripts\activate          # Windows
-source venv/bin/activate       # Linux / macOS
 ```
 **Bước 2 — Cài thư viện**
 
@@ -67,7 +66,7 @@ Sau khi train xong, script sẽ tự lưu:
 - `weights/train_history.csv` : log từng epoch
 - `weights/train_history.png` : biểu đồ loss / accuracy
 
-### Cấu trúc dữ liệu mới
+### Cấu trúc dữ liệu
 
 ```text
 dataset/
@@ -99,47 +98,3 @@ Mặc định script sẽ tạo:
 - `10%` valid
 - `10%` test
 
-### Cấu trúc thư mục train cũ
-
-Nếu bạn muốn tách rõ dữ liệu như YOLO, dùng cấu trúc này:
-
-```text
-dataset/
-  train/
-    Do/
-    Trang/
-    Vang/
-    Xanh/
-  valid/
-    Do/
-    Trang/
-    Vang/
-    Xanh/
-  test/
-    Do/
-    Trang/
-    Vang/
-    Xanh/
-```
-
-Chạy:
-
-```bash
-python train_color.py --data-dir dataset
-```
-
-Nếu chỉ có `train/Do`, `train/Trang`, `train/Vang`, `train/Xanh` thì script sẽ tự chia `train/val`.
-
----
-
-## Lỗi thường gặp
-
-**Không phát hiện được biển** → Giảm ngưỡng: `--plate-threshold 0.15`
-
-**Thiếu thư viện** → Chạy lại: `pip install -r requirements.txt`
-
-**Thiếu file model** → Kiểm tra thư mục `models/` có file `.pt` không
-
-**Chạy chậm** → Bình thường khi không có GPU (~5–15 giây/ảnh trên CPU)
-
-**PaddleOCR tải chậm lần đầu** → Đang tải model ~50 MB, từ lần sau sẽ không tải lại
